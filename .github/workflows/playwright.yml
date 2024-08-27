@@ -1,9 +1,15 @@
-name: Playwright Tests
+name: Test and Build Playwright Docker image
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+    paths:
+      - '.github/workflows/playwright.yml'
+      - 'tests/*'
+      - 'Dockerfile'
+      - 'package.json'
+      - 'yarn.lock'
+      - 'playwright.config.ts'
+      - 'tsconfig.json'
 env:
   IMAGE_NAME: e2e-test-base
   GCP_REGION: us-west1
