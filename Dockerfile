@@ -1,10 +1,10 @@
 FROM mcr.microsoft.com/playwright:v1.46.1-jammy
 WORKDIR /app
 
-ENV CI true
+ENV CI=true
 
 # Set the environment path to node_modules/.bin
-ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH=/app/node_modules/.bin:$PATH
 
 # COPY the needed files to the app folder in Docker image
 COPY tests/ /app/tests/
