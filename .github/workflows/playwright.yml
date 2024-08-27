@@ -6,7 +6,7 @@ on:
     branches: [ main, master ]
 env:
   IMAGE_NAME: e2e-test-base
-  GCP_REGION: us-central1
+  GCP_REGION: us-west1
   GCP_REPOSITORY: test-repository
 jobs:
   test:
