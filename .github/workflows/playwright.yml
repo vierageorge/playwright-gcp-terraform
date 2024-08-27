@@ -54,6 +54,6 @@ jobs:
     - name: Configure Docker to use Google Cloud Registry
       run: gcloud auth configure-docker ${GCP_REGION}-docker.pkg.dev
     - name: Build Docker image
-      run: docker build -t ${GCP_REGION}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${GCP_REPOSITORY}/${IMAGE_NAME}:${{ github.sha }} .
+      run: docker build -t ${GCP_REGION}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${GCP_REPOSITORY}/${IMAGE_NAME} .
     - name: Push Docker image
-      run: docker push ${GCP_REGION}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${GCP_REPOSITORY}/${IMAGE_NAME}:${{ github.sha }}
+      run: docker push ${GCP_REGION}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${GCP_REPOSITORY}/${IMAGE_NAME}
