@@ -1,0 +1,19 @@
+{
+  "name": "playwright-gcp-terraform",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:vierageorge/playwright-gcp-terraform.git",
+  "author": "Jorge Viera <jviera@apexfintechsolutions.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.46.1",
+    "@types/node": "^22.5.0",
+    "typescript": "^5.5.4"
+  },
+  "scripts": {
+    "build": "docker build . -t e2e-test-base",
+    "report": "playwright show-report",
+    "test:ci": "yarn build && docker run --name playwright-e2e --mount type=bind,source=\"$(pwd)\"/playwright-report,target=/app/playwright-report --rm -it e2e-test-base",
+    "test": "playwright test"
+  }
+}
